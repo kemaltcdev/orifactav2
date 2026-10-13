@@ -197,7 +197,8 @@ a:hover>.roll>span{translate:0 -100%}
 .process-steps{position:relative;margin-top:clamp(32px,3.4vw,56px);padding-top:78px;padding-bottom:40px}
 .process-steps>ol{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(24px,3vw,48px)}
 .process-ribbon{position:absolute;left:0;top:0;width:100%;height:200px;pointer-events:none;overflow:visible}
-.process-draw{stroke-dasharray:1;stroke-dashoffset:0}
+/* Drawn as the steps pass through the viewport; the pinned layout below drives it from the pin instead. */
+.process-draw{stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--draw,1))}
 .process-step{position:relative;--sc:#ff8a1f}
 .process-step:nth-child(2){padding-top:76px;--sc:#f2179a}
 .process-step:nth-child(3){padding-top:24px;--sc:#7a45f5}
@@ -775,6 +776,7 @@ html[data-motion="paused"] .hero{--hero-progress:0!important}
 html[data-motion="paused"] .ribbon-hint{display:none}
 html[data-motion="paused"] .process,html[data-motion="paused"] .contact-section,html[data-motion="paused"] .intro-inner,html[data-motion="paused"] .concept-stage{--p:1!important}
 html[data-motion="paused"] .process-pin{--enter:1!important}
+html[data-motion="paused"] .process-steps{--draw:1!important}
 html[data-motion="paused"]{scroll-behavior:auto}
 .spin{animation:spin 2s linear infinite}
 @keyframes enter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
@@ -798,6 +800,7 @@ html[data-motion="paused"]{scroll-behavior:auto}
   html[data-enhanced="true"] .footer-wordmark.reveal>*{clip-path:none!important}
   .process,.contact-section,.intro-inner,.concept-stage{--p:1!important}
   .process-pin{--enter:1!important}
+  .process-steps{--draw:1!important}
   .site-header.tucked{transform:none}
   .ribbon-stage{cursor:default}
 }

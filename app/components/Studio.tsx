@@ -115,7 +115,7 @@ export default function Studio(){
    <section className="process" id="approach" aria-labelledby="process-title" data-scroll="pin">
     <div className="process-pin section-pad" data-scroll="enter" data-scroll-var="--enter">
      <div className="section-heading"><h2 id="process-title" className="reveal-lines"><Lines lines={["Thought through.","Then built right."]}/></h2><p className="section-heading-note reveal">Good work comes from a clear process — and a genuinely shared direction.</p></div>
-     <div className="process-steps">
+     <div className="process-steps" data-scroll="read" data-scroll-var="--draw">
       <svg className="process-ribbon" viewBox="0 0 1200 200" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="process-gradient" gradientUnits="userSpaceOnUse" x1="0" x2="1200" y1="0" y2="0"><stop stopColor="#ff8a1f"/><stop offset=".3" stopColor="#f2179a"/><stop offset=".62" stopColor="#6a3cf0"/><stop offset="1" stopColor="#19d3ee"/></linearGradient><mask id="process-mask" maskUnits="userSpaceOnUse" x="-100" y="-50" width="1400" height="300"><path className="process-draw" d={ribbon.line} pathLength={1} fill="none" stroke="#fff" strokeWidth="70" strokeLinecap="round"/></mask></defs><g mask="url(#process-mask)">{ribbon.faces.map((face,i)=><Fragment key={i}><path d={face.d} fill="url(#process-gradient)"/>{face.back&&<path d={face.d} fill="#1d0f45" opacity=".34"/>}</Fragment>)}</g></svg>
       <ol>{process.map((step,i)=><li className="process-step" key={step.title} style={{"--i":i} as CSSProperties}><span className="process-number" aria-hidden="true">0{i+1}</span><h3>{step.title}</h3><h4>{step.line}</h4><p>{step.body}</p></li>)}</ol>
      </div>
